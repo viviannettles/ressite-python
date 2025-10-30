@@ -1,0 +1,37 @@
+# CORE DEPENDENCIES
+# These are the minimum packages required to run the application in a production environment.
+
+# Use specific version pins (==) for production environments for stability and reproducibility.
+
+flask==3.1.2
+# Or a different web framework:
+# django==5.2.7
+
+requests==2.32.5
+
+pandas==2.3.3
+numpy==2.3.4
+
+psycopg2-binary==2.9.11
+
+python-dotenv==1.2.1
+
+
+# ----------------------------------------------------
+# RECOMMENDED BEST PRACTICE:
+# Use a separate file (e.g., requirements-dev.txt) for development and testing dependencies.
+# The main requirements.txt should only include production dependencies.
+# You can include the dev file in your virtual environment setup like:
+# pip install -r requirements.txt -r requirements-dev.txt
+# ----------------------------------------------------
+
+# If you choose to include them here (NOT RECOMMENDED for production environments):
+# DEVELOPMENT AND TESTING DEPENDENCIES (if you must include them here)
+# pytest for unit testing:
+# pytest==7.4.2
+
+# flake8 for code style checking:
+# flake8==6.1.0
+
+# black for code formatting (usually only run by developers, not in deployment):
+# black==23.10.0
