@@ -59,7 +59,7 @@ jobs:
       - name: Archive Web Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: combined-web-artifact
+          name: ressite-python-artifact
           path: |
             backend/
             frontend/dist/
