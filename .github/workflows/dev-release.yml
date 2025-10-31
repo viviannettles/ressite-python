@@ -47,7 +47,7 @@ jobs:
       - name: Verify Flask can find Angular files (Path Check)
         run: |
           python -c "from main import PROJECT_ROOT, Path; \
-                     FRONTEND_DIST_DIR_PATH = PROJECT_ROOT / 'frontend' / 'dist' / 'frontend' / 'browser'; \
+                     FRONTEND_DIST_DIR_PATH = PROJECT_ROOT / 'frontend' / 'dist'; \
                      assert FRONTEND_DIST_DIR_PATH.exists(), f'Expected dir not found: {FRONTEND_DIST_DIR_PATH}'"
         working-directory: backend/
 
