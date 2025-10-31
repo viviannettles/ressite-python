@@ -11,7 +11,7 @@ import sys # Import sys for printing diagnostics
 PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 
 # The path where Angular's build process places the compiled files (dist/ressite-fe/browser)
-FRONTEND_DIST_DIR_PATH = PROJECT_ROOT / 'frontend' / 'dist' / 'frontend' / 'browser'
+FRONTEND_DIST_DIR_PATH = PROJECT_ROOT / 'frontend' / 'dist'
 
 # Convert to string for Flask config and for clearer path operations
 FRONTEND_DIST_DIR = str(FRONTEND_DIST_DIR_PATH)
