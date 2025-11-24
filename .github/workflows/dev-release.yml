@@ -1,4 +1,4 @@
-name: CI Build and Test (Angular + Flask)
+name: Dev Release (Angular + Flask/Python)
 
 on:
   push:
@@ -32,6 +32,13 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
+      # --- FIX: COPY TO FLASK ---
+      - name: Copy Angular build into Flask static folder
+        run: |
+          rm -rf backend/static/browser
+          mkdir -p backend/static/browser
+          cp -r frontend/dist/*/browser/* backend/static/browser/
+
       # --- 2. FLASK BACKEND SETUP ---
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -43,14 +50,22 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      # --- 3. INTEGRATION CHECK ---
-      - name: Verify Flask can find Angular files (Path Check)
+      # --- FIX: VALIDATE FINAL STRUCTURE ---
+      - name: Verify frontend was copied correctly
         run: |
-          python -c "from main import PROJECT_ROOT, Path; \
-                     FRONTEND_DIST_DIR_PATH = PROJECT_ROOT / 'frontend' / 'dist'; \
-                     assert FRONTEND_DIST_DIR_PATH.exists(), f'Expected dir not found: {FRONTEND_DIST_DIR_PATH}'"
-        working-directory: backend/
+          if [ ! -d "backend/static/browser" ]; then
+            echo "Error: Angular static folder not found!"
+            exit 1
+          fi
 
+          if [ ! -f "backend/static/browser/index.html" ]; then
+            echo "Error: index.html missing in backend/static/browser"
+            exit 1
+          fi
+
+          echo "Angular files successfully copied into Flask static folder"
+
+      # --- 3. BACKEND TESTS ---
       - name: Run any backend tests (Placeholder)
         run: echo "No Python tests defined. Skipping."
         working-directory: backend/
