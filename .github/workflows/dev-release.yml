@@ -33,11 +33,23 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=4096
 
       # --- FIX: COPY TO FLASK ---
-      - name: Copy Angular build into Flask static folder
+      - name: Copy Angular Build to Backend
         run: |
           rm -rf backend/static/browser
           mkdir -p backend/static/browser
-          cp -r frontend/dist/*/browser/* backend/static/browser/
+
+          # Find the Angular browser output directory dynamically
+          BROWSER_DIR=$(find frontend/dist -type d -name "browser" | head -n 1)
+
+          if [ -z "$BROWSER_DIR" ]; then
+            echo "ERROR: Could not find Angular build output (browser directory)."
+            echo "Dist contents:"
+            ls -R frontend/dist
+            exit 1
+          fi
+
+          echo "Found Angular build at: $BROWSER_DIR"
+          cp -r "$BROWSER_DIR"/* backend/static/browser/
 
       # --- 2. FLASK BACKEND SETUP ---
       - name: Setup Python
