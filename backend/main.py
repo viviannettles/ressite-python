@@ -9,7 +9,7 @@ import sys
 PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 
 # 2. Set the path where the Angular files were COPIED by the build script.
-# This must match the target directory in build_and_run.sh: 'backend/static/browser'
+# This must match the target directory in build_and_run.bat: 'backend/static/browser'
 FRONTEND_SERVE_DIR_PATH = PROJECT_ROOT / 'backend' / 'static' / 'browser'
 
 # Convert to string for Flask config

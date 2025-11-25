@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       # --- CHECKOUT CODE ---
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
-
 
       # --- SET UP NODE ---
       - name: Set up Node.js
@@ -23,23 +21,22 @@ jobs:
           node-version: '20'
 
       # --- INSTALL ANGULAR DEPENDENCIES ---
-      - name: Install Angular dependencies
+      - name: Install Angular Dependencies
         working-directory: frontend
         run: npm ci
 
       # --- BUILD ANGULAR APP ---
-      - name: Build Angular app
+      - name: Build Angular App
         working-directory: frontend
         env:
           NODE_OPTIONS: --max-old-space-size=4096
         run: npm run build
 
       # --- VERIFY ANGULAR OUTPUT ---
-      - name: Verify Angular output
+      - name: Verify Angular Output
         run: |
           echo "Listing backend/static after Angular build:"
           ls -R backend/static || echo "backend/static does not exist!"
-
 
       # --- SET UP PYTHON ---
       - name: Set up Python
@@ -48,14 +45,14 @@ jobs:
           python-version: '3.12'
 
       # --- INSTALL PYTHON DEPENDENCIES ---
-      - name: Install Python dependencies
+      - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       # --- OPTIONAL: RUN PYTHON TESTS ---
       # Enable only if you have tests
-      - name: Run backend tests (optional)
+      - name: Run Backend Tests (optional)
         working-directory: backend
         run: |
           echo "No tests configured. Skipping."
