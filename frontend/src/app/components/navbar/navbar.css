@@ -1,0 +1,12 @@
+.navbar-parent {
+  display: flex;
+}
+
+.navbar-child {
+  margin: auto;
+}
+
+.navbar-button {
+  margin: 10px 10px 10px 10px;
+  height: 65px;
+}

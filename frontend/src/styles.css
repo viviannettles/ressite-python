@@ -1,8 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-.base-container {
+.banner-container {
   font-family: Arial;
-  background: grey;
+  color: white;
+  background: #540000;
   padding: 10px 10px 10px 10px;
+  width: 100%;
 }
 
-body { background: lavender; }
+.content-container {
+  font-family: Arial;
+  color: white;
+}
+
+body {
+  font-family: Arial;
+  color: white;
+  background: #d68181;
+  margin: 0;
+}
