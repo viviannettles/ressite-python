@@ -1,20 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
-.banner-container {
+* {
+  box-sizing: border-box;
   font-family: Arial;
+  font-size: 1.05rem;
   color: white;
+}
+
+html, body {
   background: #540000;
-  padding: 10px 10px 10px 10px;
-  width: 100%;
-}
-
-.content-container {
-  font-family: Arial;
-  color: white;
-}
-
-body {
-  font-family: Arial;
-  color: white;
-  background: #d68181;
   margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  color: #540000;
+  background: white;
+}
+
+.banner-container {
+  background: #8c3838;
+  width: 100%;
 }

@@ -1,5 +1,6 @@
-.navbar-parent {
-  display: flex;
+.navbar {
+  display: inline-flex;
+  flex-direction: row;
 }
 
 .navbar-child {
@@ -7,6 +8,14 @@
 }
 
 .navbar-button {
-  margin: 10px 10px 10px 10px;
+  background: #8c3838;
+  font-size: 1.25rem;
+  border: none;
+  padding: 10px;
   height: 65px;
+}
+
+.navbar-button:hover {
+  color: #540000;
+  background: white;
 }
