@@ -9,5 +9,4 @@ import { PageLayout } from '../../layout/page-layout/page-layout';
 })
 export class RessiteHome {
   header = "Welcome Home!";
-  body = "I am home content. Hear me roar!";
 }

@@ -20,3 +20,7 @@ a:hover {
   background: #8c3838;
   width: 100%;
 }
+
+.body-content {
+  background: blue;
+}

@@ -10,6 +10,5 @@ import { PageBodyContent } from '../../components/page-body-content/page-body-co
 })
 export class PageLayout {
   @Input() headerTitle = "";
-  @Input() bodyContent = "";
 
 }

@@ -8,6 +8,10 @@ import { RessiteError } from './pages/ressite-error/ressite-error';
 export const routes: Routes = [
   {
    path: '',
+   children: [
+     {path: '', component: RessiteHome },
+     {path: 'home', component: RessiteHome }
+   ],
    component: RessiteHome,
    title: 'Home Page',
   },

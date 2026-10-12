@@ -9,6 +9,5 @@ import { PageLayout } from '../../layout/page-layout/page-layout';
 })
 export class RessiteWork {
   header = "Welcome Work!";
-  body = "I am work content. Hear me roar!";
 
 }
