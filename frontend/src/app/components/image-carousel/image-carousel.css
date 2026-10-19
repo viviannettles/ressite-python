@@ -1,0 +1,10 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+img {
+  max-width: 25%;
+  height: auto;
+}

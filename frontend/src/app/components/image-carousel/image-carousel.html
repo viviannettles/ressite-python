@@ -1,0 +1,7 @@
+@if (images.length) {
+  <div class="carousel">
+    <button (click)="prev()">‹</button>
+    <img [src]="images[index].src" [alt]="images[index].alt" />
+    <button (click)="next()">›</button>
+  </div>
+}
